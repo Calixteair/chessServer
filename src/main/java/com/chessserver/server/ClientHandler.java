@@ -34,21 +34,6 @@ public class ClientHandler implements Runnable {
             input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             output = new PrintWriter(clientSocket.getOutputStream(), true);
 
-            // Demande au client de fournir un pseudo
-            output.println("Veuillez entrer votre pseudo : ");
-            playerPseudo = input.readLine();
-
-            // Valide le pseudo avec PlayerManager
-            try {
-                playerManager.addPlayer(playerPseudo, this);
-                output.println("Connexion réussie ! Bienvenue " + playerPseudo);
-                Logger.info("Le joueur " + playerPseudo + " s'est connecté.");
-            } catch (InvalidPseudoException e) {
-                output.println("Erreur : " + e.getMessage());
-                closeConnection();
-                return;
-            }
-
             // Boucle de communication avec le client
             String message;
             while ((message = input.readLine()) != null) {
@@ -68,9 +53,13 @@ public class ClientHandler implements Runnable {
      */
     private void handleMessage(String message) {
         try {
-            ClientMessage clientMessage = parseMessage(message);
+            Logger.info("Traitement du message : " + message);
+            ClientMessage clientMessage = new ClientMessage(message);
 
             switch (clientMessage.getType()) {
+                case Protocol.CONNECT:
+                    playerConnection(clientMessage.getPayload());
+                    break;
                 case Protocol.CREATE_GAME:
                     createGame();
                     break;
@@ -93,6 +82,25 @@ public class ClientHandler implements Runnable {
         } catch (Exception e) {
             output.println("Erreur lors du traitement du message : " + e.getMessage());
         }
+    }
+
+    private void playerConnection(String pseudo) {
+        System.out.println("playerConnection");
+        System.out.println(pseudo);
+
+        playerPseudo = pseudo;
+        // Valide le pseudo avec PlayerManager
+        try {
+            playerManager.addPlayer(playerPseudo, this);
+            output.println("Connexion réussie ! Bienvenue " + playerPseudo);
+            Logger.info("Le joueur " + playerPseudo + " s'est connecté.");
+        } catch (InvalidPseudoException e) {
+            output.println("Erreur : " + e.getMessage());
+            closeConnection();
+            return;
+        }
+        output.println(Protocol.OK);
+        // Logique de connexion avec pseudo (validation du pseudo, etc.)
     }
 
     /**
@@ -138,19 +146,6 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    /**
-     * Parse le message reçu du client en un objet `ClientMessage`.
-     */
-    private ClientMessage parseMessage(String message) {
-        // Ici, on peut utiliser un parseur JSON, mais pour simplifier on fait un parsing manuel.
-        String[] parts = message.split(":");
-        ClientMessage clientMessage = new ClientMessage();
-        clientMessage.setType(parts[0]);
-        if (parts.length > 1) {
-            clientMessage.setPayload(parts[1]);
-        }
-        return clientMessage;
-    }
 
     /**
      * Joue un coup sur le plateau de jeu.

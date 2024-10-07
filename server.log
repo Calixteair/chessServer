@@ -1,0 +1,107 @@
+[2024-10-06 20:00:49] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:00:59] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:01:21] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:01:52] [INFO] Connexion fermée pour null
+[2024-10-06 20:02:07] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:03:25] [INFO] Connexion fermée pour null
+[2024-10-06 20:03:35] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:03:43] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:03:57] [INFO] Connexion fermée pour null
+[2024-10-06 20:04:07] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:04:18] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:04:38] [INFO] Connexion fermée pour null
+[2024-10-06 20:30:27] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:30:40] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:39:50] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:39:59] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:40:21] [INFO] Connexion fermée pour CONNECT;tes
+[2024-10-06 20:40:21] [INFO] Le joueur CONNECT;tes a été déconnecté.
+[2024-10-06 20:40:21] [INFO] Le joueur CONNECT;tes a été déconnecté.
+[2024-10-06 20:44:58] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:45:09] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:45:26] [INFO] Connexion fermée pour CONNECT;test
+[2024-10-06 20:45:26] [INFO] Le joueur CONNECT;test a été déconnecté.
+[2024-10-06 20:45:26] [INFO] Le joueur CONNECT;test a été déconnecté.
+[2024-10-06 20:47:38] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:47:52] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:47:56] [INFO] Connexion fermée pour CONNECT;test
+[2024-10-06 20:47:56] [INFO] Le joueur CONNECT;test a été déconnecté.
+[2024-10-06 20:47:56] [INFO] Le joueur CONNECT;test a été déconnecté.
+[2024-10-06 20:51:21] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:51:34] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:51:34] [INFO] in handler
+[2024-10-06 20:52:45] [INFO] Connexion fermée pour null
+[2024-10-06 20:54:45] [INFO] Serveur démarré sur le port 8090
+[2024-10-06 20:55:02] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:55:11] [INFO] Traitement du message : CONNECT;test
+[2024-10-06 20:55:11] [INFO] Le joueur test s'est connecté.
+[2024-10-06 20:57:18] [INFO] Connexion fermée pour test
+[2024-10-06 20:57:18] [INFO] Le joueur test a été déconnecté.
+[2024-10-06 20:57:26] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-06 20:57:36] [INFO] Traitement du message : CONNECT;test2
+[2024-10-06 20:57:36] [INFO] Le joueur test2 s'est connecté.
+[2024-10-06 21:00:25] [INFO] Connexion fermée pour test2
+[2024-10-06 21:00:25] [INFO] Le joueur test2 a été déconnecté.
+[2024-10-07 08:37:23] [INFO] Serveur démarré sur le port 8090
+[2024-10-07 08:37:33] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 08:37:37] [INFO] Traitement du message : CONNECT;test
+[2024-10-07 08:37:37] [INFO] Le joueur test s'est connecté.
+[2024-10-07 08:39:30] [INFO] Connexion fermée pour test
+[2024-10-07 08:39:30] [INFO] Le joueur test a été déconnecté.
+[2024-10-07 08:39:39] [INFO] Serveur démarré sur le port 8090
+[2024-10-07 08:39:50] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 08:40:09] [INFO] Traitement du message : CONNECT;test
+[2024-10-07 08:40:09] [INFO] Le joueur test s'est connecté.
+[2024-10-07 08:40:13] [INFO] Connexion fermée pour test
+[2024-10-07 08:40:13] [INFO] Le joueur test a été déconnecté.
+[2024-10-07 08:44:58] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 08:45:04] [INFO] Traitement du message : CONNECT;test2
+[2024-10-07 08:45:04] [INFO] Le joueur test2 s'est connecté.
+[2024-10-07 08:46:22] [INFO] Connexion fermée pour test2
+[2024-10-07 08:46:22] [INFO] Le joueur test2 a été déconnecté.
+[2024-10-07 08:48:32] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 08:48:37] [INFO] Traitement du message : CONNECT;test3
+[2024-10-07 08:48:37] [INFO] Le joueur test3 s'est connecté.
+[2024-10-07 08:50:45] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 08:50:52] [INFO] Traitement du message : CONNECT;test5
+[2024-10-07 08:50:52] [INFO] Le joueur test5 s'est connecté.
+[2024-10-07 08:52:42] [INFO] Connexion fermée pour test3
+[2024-10-07 08:52:42] [INFO] Le joueur test3 a été déconnecté.
+[2024-10-07 08:52:42] [INFO] Connexion fermée pour test5
+[2024-10-07 08:52:42] [INFO] Le joueur test5 a été déconnecté.
+[2024-10-07 08:52:50] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 08:52:56] [INFO] Traitement du message : CONNECT;tets7
+[2024-10-07 08:52:56] [INFO] Le joueur tets7 s'est connecté.
+[2024-10-07 09:00:45] [INFO] Connexion fermée pour tets7
+[2024-10-07 09:00:45] [INFO] Le joueur tets7 a été déconnecté.
+[2024-10-07 09:00:51] [INFO] Serveur démarré sur le port 8090
+[2024-10-07 09:01:00] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:01:05] [INFO] Traitement du message : CONNECT;test1
+[2024-10-07 09:01:05] [INFO] Le joueur test1 s'est connecté.
+[2024-10-07 09:03:21] [INFO] Connexion fermée pour test1
+[2024-10-07 09:03:21] [INFO] Le joueur test1 a été déconnecté.
+[2024-10-07 09:03:32] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:03:36] [INFO] Traitement du message : CONNECT;test2
+[2024-10-07 09:03:36] [INFO] Le joueur test2 s'est connecté.
+[2024-10-07 09:03:47] [INFO] Connexion fermée pour test2
+[2024-10-07 09:03:47] [INFO] Le joueur test2 a été déconnecté.
+[2024-10-07 09:03:56] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:04:01] [INFO] Traitement du message : CONNECT;test3
+[2024-10-07 09:04:01] [INFO] Le joueur test3 s'est connecté.
+[2024-10-07 09:04:28] [INFO] Connexion fermée pour test3
+[2024-10-07 09:04:28] [INFO] Le joueur test3 a été déconnecté.
+[2024-10-07 09:12:14] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:12:19] [INFO] Traitement du message : CONNECT;test7
+[2024-10-07 09:12:19] [INFO] Le joueur test7 s'est connecté.
+[2024-10-07 09:12:51] [INFO] Connexion fermée pour test7
+[2024-10-07 09:12:51] [INFO] Le joueur test7 a été déconnecté.
+[2024-10-07 09:13:00] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:13:05] [INFO] Traitement du message : CONNECT;test10
+[2024-10-07 09:13:05] [INFO] Le joueur test10 s'est connecté.
+[2024-10-07 09:14:25] [INFO] Connexion fermée pour test10
+[2024-10-07 09:14:25] [INFO] Le joueur test10 a été déconnecté.
+[2024-10-07 09:14:34] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:14:39] [INFO] Traitement du message : CONNECT;test22
+[2024-10-07 09:14:39] [INFO] Le joueur test22 s'est connecté.
+[2024-10-07 09:15:08] [INFO] Connexion fermée pour test22
+[2024-10-07 09:15:08] [INFO] Le joueur test22 a été déconnecté.

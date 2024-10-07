@@ -1,7 +1,11 @@
 package com.chessserver.network;
 
 
+import com.chessgame.model.Player;
+import com.chessserver.exceptions.InvalidPseudoException;
 import com.chessserver.network.Protocol;
+import com.chessserver.server.GameRegistry;
+import com.chessserver.server.PlayerManager;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,9 +14,13 @@ public class MessageHandler {
 
     private static final Logger LOGGER = Logger.getLogger(MessageHandler.class.getName());
     private final SocketHandler socketHandler;
+    private final PlayerManager playerManager;
+    private final GameRegistry gameRegistry;
 
-    public MessageHandler(SocketHandler socketHandler) {
+    public MessageHandler(SocketHandler socketHandler, PlayerManager playerManager, GameRegistry gameRegistry) {
         this.socketHandler = socketHandler;
+        this.playerManager = playerManager;
+        this.gameRegistry = gameRegistry;
     }
 
     /**
@@ -22,33 +30,36 @@ public class MessageHandler {
      */
     public void handleMessage(String message) {
         LOGGER.info("Traitement du message : " + message);
+        ClientMessage clientMessage = new ClientMessage(message);
 
-        if (message.startsWith(Protocol.CONNECT)) {
-            handleConnect(message);
-        } else if (message.startsWith(Protocol.CREATE_GAME)) {
-            handleCreateGame();
-        } else if (message.startsWith(Protocol.JOIN_GAME)) {
-            handleJoinGame(message);
-        } else if (message.startsWith(Protocol.MOVE_PIECE)) {
-            handleMovePiece(message);
-        } else if (message.startsWith(Protocol.DISCONNECT)) {
-            handleDisconnect();
-        } else {
-            socketHandler.getOutput().println(Protocol.ERROR); // Réponse pour message non reconnu
+        switch (clientMessage.getType()) {
+            case Protocol.CONNECT:
+                handleConnect(clientMessage.getPayload());
+                break;
+            case Protocol.CREATE_GAME:
+                handleCreateGame();
+                break;
+            case Protocol.JOIN_GAME:
+                handleJoinGame(clientMessage.getPayload());
+                break;
+            case Protocol.MOVE_PIECE:
+                handleMovePiece(clientMessage.getPayload());
+                break;
+            case Protocol.DISCONNECT:
+                handleDisconnect();
+                break;
+            default:
+                socketHandler.getOutput().println(Protocol.ERROR_UNKNOWN_COMMAND);
         }
     }
 
-    private void handleConnect(String message) {
-        String[] tokens = message.split(";");
-        if (tokens.length < 2) {
-            socketHandler.getOutput().println(Protocol.ERROR_INVALID_PSEUDO);
-            return;
-        }
+    private void handleConnect(String playerPseudo) {
 
-        String pseudo = tokens[1];
+
         // Logique de validation du pseudo ici
         socketHandler.getOutput().println(Protocol.OK);  // Envoi de la réponse de succès
     }
+
 
     private void handleCreateGame() {
         // Logique pour créer une nouvelle partie

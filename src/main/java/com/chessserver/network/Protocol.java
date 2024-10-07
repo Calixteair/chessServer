@@ -37,6 +37,8 @@ public class Protocol {
     public static final String ERROR_GAME_FULL = "ERROR_GAME_FULL";           // Erreur si la partie est pleine
     public static final String ERROR_INVALID_MOVE = "ERROR_INVALID_MOVE";     // Erreur si le mouvement est invalide
     public static final String ERROR_NOT_YOUR_TURN = "ERROR_NOT_YOUR_TURN";   // Erreur si ce n'est pas le tour du joueur
+    public static final String ERROR_UNKNOWN_COMMAND = "ERROR_UNKNOWN_COMMAND"; // Erreur si la commande est inconnue
+
 
     // --- Messages spécifiques aux échecs ---
 
