@@ -7,7 +7,9 @@ import com.chessserver.exceptions.GameFullException;
 import com.chessserver.server.PlayerManager;
 import com.chessserver.server.GameRegistry;
 import com.chessserver.network.Protocol;
+import com.chessgame.model.ChessGame;
 
+import java.util.List;
 import java.io.*;
 import java.net.Socket;
 
@@ -61,13 +63,17 @@ public class ClientHandler implements Runnable {
                     playerConnection(clientMessage.getPayload());
                     break;
                 case Protocol.CREATE_GAME:
-                    createGame();
+                    createGame(clientMessage.getPayload());
                     break;
                 case Protocol.JOIN_GAME:
                     joinGame(clientMessage.getPayload());
                     break;
                 case Protocol.LIST_GAMES:
-                    output.println(gameRegistry.listAvailableGames());
+                    Logger.info("Liste des parties demandée par " + playerPseudo);
+                    listGames();
+                    break;
+                case Protocol.GET_GAME:
+                    output.println(gameRegistry.getGame(clientMessage.getPayload()));
                     break;
                 case Protocol.DISCONNECT:
                     closeConnection();
@@ -106,10 +112,35 @@ public class ClientHandler implements Runnable {
     /**
      * Crée une nouvelle partie et notifie le client.
      */
-    private void createGame() {
-        this.gameSession = gameRegistry.createGame(playerPseudo);
+    private void createGame(String gameName) {
+        this.gameSession = gameRegistry.createGame(playerPseudo, gameName);
+        output.println(Protocol.OK);
+        output.println(gameSession.getId());
         output.println("Nouvelle partie créée par " + playerPseudo);
         Logger.info(playerPseudo + " a créé une nouvelle partie.");
+    }
+
+    /**
+     * Permet au joueur de recupérer la liste des parties disponibles.
+     */
+    private void listGames() throws IOException, ClassNotFoundException {
+        System.out.println("listGames");
+        ChessGame game = new ChessGame();
+
+
+        System.out.println(game);
+
+        List<GameSession> games = gameRegistry.listAvailableGames();
+
+        // Réutilisez le ObjectOutputStream, ou si c'est la première fois que vous l'utilisez, créez-le
+        ObjectOutputStream out;
+        if (clientSocket.getOutputStream() instanceof ObjectOutputStream) {
+            out = (ObjectOutputStream) clientSocket.getOutputStream();
+        } else {
+            out = new ObjectOutputStream(clientSocket.getOutputStream());
+        }
+        out.writeObject(games);
+        out.flush();
     }
 
     /**
@@ -118,9 +149,17 @@ public class ClientHandler implements Runnable {
     private void joinGame(String gameId) {
         try {
             this.gameSession = gameRegistry.joinGame(gameId, playerPseudo);
+            output.println(Protocol.OK);
+            ObjectOutputStream out;
+            if (clientSocket.getOutputStream() instanceof ObjectOutputStream) {
+                out = (ObjectOutputStream) clientSocket.getOutputStream();
+            } else {
+                out = new ObjectOutputStream(clientSocket.getOutputStream());
+            }
+            out.writeObject(gameSession);
+
             output.println("Vous avez rejoint la partie " + gameId);
             Logger.info(playerPseudo + " a rejoint la partie " + gameId);
-            //GameFullException
         } catch (Exception e) {
             output.println("Erreur : " + e.getMessage());
         }
@@ -171,6 +210,9 @@ public class ClientHandler implements Runnable {
 
 
     }
+
+
+
 
 
 }

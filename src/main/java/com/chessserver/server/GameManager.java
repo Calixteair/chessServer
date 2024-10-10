@@ -4,16 +4,18 @@ import com.chessgame.model.Board;
 import com.chessgame.model.ChessGame;
 import com.chessgame.utils.Move;
 
-public class GameManager {
+import java.io.Serializable;
+
+public class GameManager implements Serializable {
 
 
 
     private String GameName;
     private ChessGame chessGame;
 
-    public void initGame(String player1, String player2) {
+    public void initGame(String player1, String player2, String gameName) {
         this.chessGame = new ChessGame();
-        this.GameName = player1 + " vs " + player2;
+        this.GameName = gameName + " : " + player1 + " vs " + player2;
 
     }
 
@@ -40,6 +42,17 @@ public class GameManager {
 
     public void movePiece(Move move) {
         chessGame.getCurrentPlayer().movePiece(move.getStartX(), move.getStartY(), move.getEndX(), move.getEndY());
+    }
+
+    public Board getBoard() {
+        return chessGame.getBoard();
+    }
+
+    //implement serialization
+    private void writeObject(java.io.ObjectOutputStream out)
+            throws java.io.IOException {
+        out.writeObject(GameName);
+        out.writeObject(chessGame);
     }
 
 

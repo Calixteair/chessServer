@@ -15,6 +15,7 @@ public class Protocol {
     public static final String LIST_GAMES = "LIST_GAMES";    // Demander la liste des parties disponibles
     public static final String LEAVE_GAME = "LEAVE_GAME";    // Quitter une partie
     public static final String DISCONNECT = "DISCONNECT";    // Déconnexion du serveur
+    public static final String GET_GAME = "GET_GAME";        // Obtenir les informations d'une partie
 
     // --- Réponses du serveur ---
 

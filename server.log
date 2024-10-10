@@ -105,3 +105,451 @@
 [2024-10-07 09:14:39] [INFO] Le joueur test22 s'est connecté.
 [2024-10-07 09:15:08] [INFO] Connexion fermée pour test22
 [2024-10-07 09:15:08] [INFO] Le joueur test22 a été déconnecté.
+[2024-10-07 09:39:44] [INFO] Serveur démarré sur le port 8090
+[2024-10-07 09:40:00] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:40:04] [INFO] Traitement du message : CONNECT;test
+[2024-10-07 09:40:04] [INFO] Le joueur test s'est connecté.
+[2024-10-07 09:40:04] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 09:47:23] [INFO] Connexion fermée pour test
+[2024-10-07 09:47:23] [INFO] Le joueur test a été déconnecté.
+[2024-10-07 09:47:32] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 09:47:37] [INFO] Traitement du message : CONNECT;test67
+[2024-10-07 09:47:37] [INFO] Le joueur test67 s'est connecté.
+[2024-10-07 09:47:37] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 09:47:40] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 09:47:41] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 09:47:44] [INFO] Connexion fermée pour test67
+[2024-10-07 09:47:44] [INFO] Le joueur test67 a été déconnecté.
+[2024-10-07 10:28:24] [INFO] Serveur démarré sur le port 8090
+[2024-10-07 10:28:47] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 10:28:53] [INFO] Traitement du message : CONNECT;test
+[2024-10-07 10:28:53] [INFO] Le joueur test s'est connecté.
+[2024-10-07 10:28:53] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 10:30:07] [INFO] Connexion fermée pour test
+[2024-10-07 10:30:07] [INFO] Le joueur test a été déconnecté.
+[2024-10-07 10:30:26] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 10:30:30] [INFO] Traitement du message : CONNECT;test3
+[2024-10-07 10:30:30] [INFO] Le joueur test3 s'est connecté.
+[2024-10-07 10:30:30] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 10:30:42] [INFO] Traitement du message : CREATE_GAME;partie1
+[2024-10-07 10:30:42] [INFO] test3 a créé une nouvelle partie.
+[2024-10-07 10:31:36] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-07 10:31:36] [INFO] Connexion fermée pour test3
+[2024-10-07 10:31:36] [INFO] Le joueur test3 a été déconnecté.
+[2024-10-07 10:31:42] [INFO] Serveur démarré sur le port 8090
+[2024-10-07 10:31:54] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 10:31:58] [INFO] Traitement du message : CONNECT;test1
+[2024-10-07 10:31:58] [INFO] Le joueur test1 s'est connecté.
+[2024-10-07 10:31:58] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 10:32:03] [INFO] Traitement du message : CREATE_GAME;game1
+[2024-10-07 10:32:03] [INFO] test1 a créé une nouvelle partie.
+[2024-10-07 10:32:15] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-07 10:32:20] [INFO] Traitement du message : CONNECT;test2
+[2024-10-07 10:32:20] [INFO] Le joueur test2 s'est connecté.
+[2024-10-07 10:32:20] [INFO] Traitement du message : LIST_GAMES
+[2024-10-07 10:32:50] [INFO] Traitement du message : DISCONNECT
+[2024-10-07 10:32:50] [INFO] Connexion fermée pour test2
+[2024-10-07 10:32:50] [INFO] Le joueur test2 a été déconnecté.
+[2024-10-07 10:32:50] [ERROR] Erreur de communication avec le client : Socket closed
+[2024-10-07 10:32:50] [INFO] Le joueur test2 a été déconnecté.
+[2024-10-07 10:33:13] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-07 10:33:13] [INFO] Connexion fermée pour test1
+[2024-10-07 10:33:13] [INFO] Le joueur test1 a été déconnecté.
+[2024-10-08 14:08:49] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 14:08:59] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:09:08] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 14:09:08] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 14:09:08] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:09:16] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:09:20] [INFO] Traitement du message : CONNECT;fdp
+[2024-10-08 14:09:20] [INFO] Le joueur fdp s'est connecté.
+[2024-10-08 14:09:20] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:09:31] [INFO] Traitement du message : CREATE_GAME;test1
+[2024-10-08 14:09:31] [INFO] calixte a créé une nouvelle partie.
+[2024-10-08 14:09:35] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:47:17] [INFO] Connexion fermée pour calixte
+[2024-10-08 14:47:17] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 14:47:17] [INFO] Connexion fermée pour fdp
+[2024-10-08 14:47:17] [INFO] Le joueur fdp a été déconnecté.
+[2024-10-08 14:47:46] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 14:47:54] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:47:58] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 14:47:58] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 14:47:58] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:48:11] [INFO] Connexion fermée pour calixte
+[2024-10-08 14:48:11] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 14:48:43] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:48:47] [INFO] Traitement du message : CONNECT;tets2
+[2024-10-08 14:48:47] [INFO] Le joueur tets2 s'est connecté.
+[2024-10-08 14:48:47] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:49:33] [INFO] Connexion fermée pour tets2
+[2024-10-08 14:49:33] [INFO] Le joueur tets2 a été déconnecté.
+[2024-10-08 14:49:46] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:49:50] [INFO] Traitement du message : CONNECT;test5
+[2024-10-08 14:49:50] [INFO] Le joueur test5 s'est connecté.
+[2024-10-08 14:49:50] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:53:38] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 14:53:53] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:53:57] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 14:53:57] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 14:53:57] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:54:21] [INFO] Connexion fermée pour calixte
+[2024-10-08 14:54:21] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 14:54:32] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:54:35] [INFO] Traitement du message : CONNECT;test
+[2024-10-08 14:54:35] [INFO] Le joueur test s'est connecté.
+[2024-10-08 14:54:35] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:55:43] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 14:55:54] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:55:58] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 14:55:58] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 14:55:58] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:55:58] [INFO] Liste des parties demandée par calixte
+[2024-10-08 14:55:58] [INFO] Envoi de la liste des parties à fincalixte
+[2024-10-08 14:56:27] [INFO] Connexion fermée pour calixte
+[2024-10-08 14:56:27] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 14:56:37] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:56:40] [INFO] Traitement du message : CONNECT;test6
+[2024-10-08 14:56:40] [INFO] Le joueur test6 s'est connecté.
+[2024-10-08 14:56:40] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:56:40] [INFO] Liste des parties demandée par test6
+[2024-10-08 14:56:40] [INFO] Envoi de la liste des parties à fintest6
+[2024-10-08 14:58:50] [INFO] Connexion fermée pour test6
+[2024-10-08 14:58:50] [INFO] Le joueur test6 a été déconnecté.
+[2024-10-08 14:58:59] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:59:04] [INFO] Traitement du message : CONNECT;testz
+[2024-10-08 14:59:04] [INFO] Le joueur testz s'est connecté.
+[2024-10-08 14:59:04] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:59:04] [INFO] Liste des parties demandée par testz
+[2024-10-08 14:59:04] [INFO] Envoi de la liste des parties à fintestz
+[2024-10-08 14:59:04] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:59:04] [INFO] Liste des parties demandée par testz
+[2024-10-08 14:59:04] [INFO] Envoi de la liste des parties à fintestz
+[2024-10-08 14:59:12] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 14:59:17] [INFO] Traitement du message : CREATE_GAME;testpart
+[2024-10-08 14:59:17] [INFO] testz a créé une nouvelle partie.
+[2024-10-08 14:59:25] [INFO] Traitement du message : CREATE_GAME;testpartsdlmksq
+[2024-10-08 14:59:25] [INFO] testz a créé une nouvelle partie.
+[2024-10-08 14:59:35] [INFO] Traitement du message : CONNECT;testi
+[2024-10-08 14:59:35] [INFO] Le joueur testi s'est connecté.
+[2024-10-08 14:59:35] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:59:35] [INFO] Liste des parties demandée par testi
+[2024-10-08 14:59:35] [INFO] Envoi de la liste des parties à fintesti
+[2024-10-08 14:59:35] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 14:59:35] [INFO] Liste des parties demandée par testi
+[2024-10-08 14:59:35] [INFO] Envoi de la liste des parties à fintesti
+[2024-10-08 15:00:13] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 15:00:13] [INFO] Connexion fermée pour testi
+[2024-10-08 15:00:13] [INFO] Le joueur testi a été déconnecté.
+[2024-10-08 15:00:13] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 15:00:13] [INFO] Connexion fermée pour testz
+[2024-10-08 15:00:13] [INFO] Le joueur testz a été déconnecté.
+[2024-10-08 15:00:17] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:00:27] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:00:32] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:00:40] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:00:40] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:00:40] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:00:40] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:00:40] [INFO] Envoi de la liste des parties à fincalixte
+[2024-10-08 15:00:40] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:00:40] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:00:40] [INFO] Envoi de la liste des parties à fincalixte
+[2024-10-08 15:00:44] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:00:44] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 15:00:44] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:00:44] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:00:44] [INFO] Envoi de la liste des parties à finzeky
+[2024-10-08 15:00:44] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:00:44] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:00:44] [INFO] Envoi de la liste des parties à finzeky
+[2024-10-08 15:00:52] [INFO] Traitement du message : CREATE_GAME;test
+[2024-10-08 15:00:52] [INFO] zeky a créé une nouvelle partie.
+[2024-10-08 15:00:53] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:00:53] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:00:53] [INFO] Envoi de la liste des parties à fincalixte
+[2024-10-08 15:05:33] [INFO] Connexion fermée pour zeky
+[2024-10-08 15:05:33] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 15:05:33] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 15:05:33] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:05:33] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:05:41] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:05:43] [INFO] Traitement du message : CONNECT;kfjlds
+[2024-10-08 15:05:43] [INFO] Le joueur kfjlds s'est connecté.
+[2024-10-08 15:05:43] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:05:43] [INFO] Liste des parties demandée par kfjlds
+[2024-10-08 15:05:43] [INFO] Envoi de la liste des parties à finkfjlds
+[2024-10-08 15:05:43] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:05:43] [INFO] Liste des parties demandée par kfjlds
+[2024-10-08 15:05:43] [INFO] Envoi de la liste des parties à finkfjlds
+[2024-10-08 15:05:49] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 15:05:49] [INFO] Connexion fermée pour kfjlds
+[2024-10-08 15:05:49] [INFO] Le joueur kfjlds a été déconnecté.
+[2024-10-08 15:05:54] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:06:01] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:06:04] [INFO] Traitement du message : CONNECT;lksj
+[2024-10-08 15:06:04] [INFO] Le joueur lksj s'est connecté.
+[2024-10-08 15:06:04] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:06:04] [INFO] Liste des parties demandée par lksj
+[2024-10-08 15:06:04] [INFO] Envoi de la liste des parties à finlksj
+[2024-10-08 15:06:04] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:06:04] [INFO] Liste des parties demandée par lksj
+[2024-10-08 15:06:04] [INFO] Envoi de la liste des parties à finlksj
+[2024-10-08 15:06:11] [INFO] Traitement du message : CREATE_GAME;test
+[2024-10-08 15:06:11] [INFO] lksj a créé une nouvelle partie.
+[2024-10-08 15:08:36] [INFO] Connexion fermée pour lksj
+[2024-10-08 15:08:36] [INFO] Le joueur lksj a été déconnecté.
+[2024-10-08 15:08:44] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:08:51] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:08:57] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:08:57] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:08:57] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:08:57] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:08:57] [INFO] Envoi de la liste des parties à fincalixte
+[2024-10-08 15:09:06] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:09:10] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:09:10] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 15:09:10] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:09:10] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:09:10] [INFO] Envoi de la liste des parties à finzeky
+[2024-10-08 15:09:16] [INFO] Traitement du message : CREATE_GAME;testz
+[2024-10-08 15:09:16] [INFO] zeky a créé une nouvelle partie.
+[2024-10-08 15:09:21] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:09:21] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:09:21] [INFO] Envoi de la liste des parties à fincalixte
+[2024-10-08 15:09:23] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:09:23] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:09:23] [INFO] Envoi de la liste des parties à fincalixte
+[2024-10-08 15:09:29] [INFO] Traitement du message : DISCONNECT
+[2024-10-08 15:09:29] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:09:29] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:09:29] [ERROR] Erreur de communication avec le client : Socket closed
+[2024-10-08 15:09:29] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:09:36] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:09:41] [INFO] Traitement du message : CONNECT;calixte3
+[2024-10-08 15:09:41] [INFO] Le joueur calixte3 s'est connecté.
+[2024-10-08 15:09:41] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:09:41] [INFO] Liste des parties demandée par calixte3
+[2024-10-08 15:09:41] [INFO] Envoi de la liste des parties à fincalixte3
+[2024-10-08 15:10:08] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 15:10:08] [INFO] Connexion fermée pour calixte3
+[2024-10-08 15:10:08] [INFO] Le joueur calixte3 a été déconnecté.
+[2024-10-08 15:10:15] [INFO] Connexion fermée pour zeky
+[2024-10-08 15:10:15] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 15:10:49] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:10:53] [INFO] Traitement du message : CONNECT;testq
+[2024-10-08 15:10:53] [INFO] Le joueur testq s'est connecté.
+[2024-10-08 15:10:53] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:10:53] [INFO] Liste des parties demandée par testq
+[2024-10-08 15:10:53] [INFO] Envoi de la liste des parties à fintestq
+[2024-10-08 15:12:14] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:12:20] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:12:24] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:12:24] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:12:24] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:12:24] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:12:31] [INFO] Traitement du message : CREATE_GAME;testc
+[2024-10-08 15:12:31] [INFO] calixte a créé une nouvelle partie.
+[2024-10-08 15:12:37] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:12:40] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:12:40] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 15:12:40] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:12:40] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:12:41] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:12:41] [INFO] Connexion fermée pour zeky
+[2024-10-08 15:12:41] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 15:12:41] [ERROR] Erreur de communication avec le client : Socket closed
+[2024-10-08 15:12:41] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 15:13:46] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:13:53] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:14:45] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:14:45] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:14:45] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:14:45] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:14:49] [INFO] Traitement du message : CREATE_GAME;testc
+[2024-10-08 15:14:49] [INFO] calixte a créé une nouvelle partie.
+[2024-10-08 15:15:01] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:15:04] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:15:04] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 15:15:04] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:15:04] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:15:04] [INFO] Connexion fermée pour zeky
+[2024-10-08 15:15:04] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 15:17:11] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:17:25] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:17:29] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:17:29] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:17:29] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:17:29] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:17:34] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:17:34] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:17:43] [INFO] Traitement du message : CREATE_GAME;testc
+[2024-10-08 15:17:43] [INFO] calixte a créé une nouvelle partie.
+[2024-10-08 15:17:50] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:17:57] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:17:57] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 15:17:57] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:17:57] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:17:57] [INFO] Connexion fermée pour zeky
+[2024-10-08 15:17:57] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 15:21:10] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:21:17] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:21:21] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:21:21] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:21:21] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:21:21] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:21:28] [INFO] Traitement du message : CREATE_GAME;testc
+[2024-10-08 15:21:28] [INFO] calixte a créé une nouvelle partie.
+[2024-10-08 15:21:32] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:21:36] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:21:36] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 15:21:36] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:21:36] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:21:36] [INFO] Connexion fermée pour zeky
+[2024-10-08 15:21:36] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 15:26:12] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:26:25] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:26:29] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:26:29] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:26:29] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:26:29] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:26:29] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:26:29] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:27:07] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:27:12] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:27:12] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:27:12] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:27:12] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:27:12] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:27:12] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:28:12] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:28:20] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:28:24] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:28:24] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:28:24] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:28:24] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:28:24] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:28:24] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:30:14] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:30:29] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:30:33] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:30:33] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:30:33] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:30:33] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:30:33] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:30:33] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:32:22] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:32:35] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:32:38] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:32:38] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:32:38] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:32:38] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:32:38] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:32:38] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:46:22] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:46:31] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:46:34] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:46:34] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:46:34] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:46:34] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:47:20] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 15:47:20] [INFO] Connexion fermée pour calixte
+[2024-10-08 15:47:20] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 15:47:27] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:47:31] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 15:47:31] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 15:47:31] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:47:31] [INFO] Liste des parties demandée par zeky
+[2024-10-08 15:49:11] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:49:21] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:49:26] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:49:26] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:49:26] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:49:26] [INFO] Liste des parties demandée par calixte
+[2024-10-08 15:53:00] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 15:54:07] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 15:54:11] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 15:54:11] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 15:54:11] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 15:54:11] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:00:46] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 16:01:13] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:01:16] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 16:01:16] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 16:01:16] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:01:16] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:02:51] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 16:02:51] [INFO] Connexion fermée pour calixte
+[2024-10-08 16:02:51] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 16:04:07] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 16:04:13] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:04:20] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 16:04:20] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 16:04:20] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:04:20] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:04:29] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:04:34] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 16:04:34] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 16:04:34] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:04:34] [INFO] Liste des parties demandée par zeky
+[2024-10-08 16:04:40] [INFO] Traitement du message : CREATE_GAME;test
+[2024-10-08 16:04:40] [INFO] zeky a créé une nouvelle partie.
+[2024-10-08 16:04:51] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:04:51] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:04:51] [INFO] Connexion fermée pour calixte
+[2024-10-08 16:04:51] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 16:24:41] [INFO] Connexion fermée pour zeky
+[2024-10-08 16:24:41] [INFO] Le joueur zeky a été déconnecté.
+[2024-10-08 16:34:08] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 16:34:15] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:34:19] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 16:34:19] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 16:34:19] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:34:19] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:34:28] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:34:33] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 16:34:33] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 16:34:33] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:34:33] [INFO] Liste des parties demandée par zeky
+[2024-10-08 16:34:38] [INFO] Traitement du message : CREATE_GAME;test
+[2024-10-08 16:34:38] [INFO] zeky a créé une nouvelle partie.
+[2024-10-08 16:35:14] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:35:14] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:35:14] [INFO] Connexion fermée pour calixte
+[2024-10-08 16:35:14] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 16:36:55] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 16:37:09] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:37:13] [INFO] Traitement du message : CONNECT;czlixte
+[2024-10-08 16:37:13] [INFO] Le joueur czlixte s'est connecté.
+[2024-10-08 16:37:13] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:37:13] [INFO] Liste des parties demandée par czlixte
+[2024-10-08 16:37:13] [INFO] Connexion fermée pour czlixte
+[2024-10-08 16:37:13] [INFO] Le joueur czlixte a été déconnecté.
+[2024-10-08 16:40:30] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 16:40:54] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:41:06] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 16:41:06] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 16:41:06] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:41:06] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:41:06] [INFO] Connexion fermée pour calixte
+[2024-10-08 16:41:06] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 16:45:25] [INFO] Serveur démarré sur le port 8090
+[2024-10-08 16:45:42] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:45:47] [INFO] Traitement du message : CONNECT;calixte
+[2024-10-08 16:45:47] [INFO] Le joueur calixte s'est connecté.
+[2024-10-08 16:45:47] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:45:47] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:45:58] [INFO] Nouvelle connexion de /127.0.0.1
+[2024-10-08 16:46:02] [INFO] Traitement du message : CONNECT;zeky
+[2024-10-08 16:46:02] [INFO] Le joueur zeky s'est connecté.
+[2024-10-08 16:46:02] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:46:02] [INFO] Liste des parties demandée par zeky
+[2024-10-08 16:46:06] [INFO] Traitement du message : CREATE_GAME;stest
+[2024-10-08 16:46:06] [INFO] zeky a créé une nouvelle partie.
+[2024-10-08 16:46:08] [INFO] Traitement du message : LIST_GAMES
+[2024-10-08 16:46:08] [INFO] Liste des parties demandée par calixte
+[2024-10-08 16:56:42] [INFO] Connexion fermée pour calixte
+[2024-10-08 16:56:42] [INFO] Le joueur calixte a été déconnecté.
+[2024-10-08 16:59:38] [ERROR] Erreur de communication avec le client : Connection reset
+[2024-10-08 16:59:38] [INFO] Connexion fermée pour zeky
+[2024-10-08 16:59:38] [INFO] Le joueur zeky a été déconnecté.
