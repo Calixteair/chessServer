@@ -90,7 +90,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    private void playerConnection(String pseudo) {
+    private synchronized void playerConnection(String pseudo) {
         System.out.println("playerConnection");
         System.out.println(pseudo);
 
@@ -112,18 +112,19 @@ public class ClientHandler implements Runnable {
     /**
      * Crée une nouvelle partie et notifie le client.
      */
-    private void createGame(String gameName) {
+    private synchronized void createGame(String gameName) {
         this.gameSession = gameRegistry.createGame(playerPseudo, gameName);
         output.println(Protocol.OK);
         output.println(gameSession.getId());
         output.println("Nouvelle partie créée par " + playerPseudo);
         Logger.info(playerPseudo + " a créé une nouvelle partie.");
+        gameSession.waitPartyStart();
     }
 
     /**
      * Permet au joueur de recupérer la liste des parties disponibles.
      */
-    private void listGames() throws IOException, ClassNotFoundException {
+    private synchronized void listGames() throws IOException, ClassNotFoundException {
         System.out.println("listGames");
         ChessGame game = new ChessGame();
 
@@ -146,19 +147,17 @@ public class ClientHandler implements Runnable {
     /**
      * Permet au joueur de rejoindre une partie existante.
      */
-    private void joinGame(String gameId) {
+    private synchronized void joinGame(String gameId) {
         try {
             this.gameSession = gameRegistry.joinGame(gameId, playerPseudo);
             output.println(Protocol.OK);
-            ObjectOutputStream out;
-            if (clientSocket.getOutputStream() instanceof ObjectOutputStream) {
-                out = (ObjectOutputStream) clientSocket.getOutputStream();
-            } else {
-                out = new ObjectOutputStream(clientSocket.getOutputStream());
-            }
-            out.writeObject(gameSession);
 
             output.println("Vous avez rejoint la partie " + gameId);
+
+            output.println("START");
+            ClientHandler otherPlayer = playerManager.getPlayerHandler(gameSession.getOtherPlayer(playerPseudo));
+            otherPlayer.output.println("START");
+
             Logger.info(playerPseudo + " a rejoint la partie " + gameId);
         } catch (Exception e) {
             output.println("Erreur : " + e.getMessage());
@@ -210,6 +209,7 @@ public class ClientHandler implements Runnable {
 
 
     }
+
 
 
 

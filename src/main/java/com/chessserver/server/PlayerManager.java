@@ -56,5 +56,9 @@ public class PlayerManager {
             throw new InvalidPseudoException("Le pseudo ne doit contenir que des caractères alphanumériques (pas de caractères spéciaux).");
         }
     }
+
+    public ClientHandler getPlayerHandler(String pseudo) {
+        return connectedPlayers.get(pseudo);
+    }
 }
 

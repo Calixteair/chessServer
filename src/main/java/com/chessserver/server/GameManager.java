@@ -2,6 +2,7 @@ package com.chessserver.server;
 
 import com.chessgame.model.Board;
 import com.chessgame.model.ChessGame;
+import com.chessgame.model.Player;
 import com.chessgame.utils.Move;
 
 import java.io.Serializable;
@@ -16,7 +17,10 @@ public class GameManager implements Serializable {
     public void initGame(String player1, String player2, String gameName) {
         this.chessGame = new ChessGame();
         this.GameName = gameName + " : " + player1 + " vs " + player2;
-
+        Player whitePlayer = new Player(true, chessGame.getBoard(), player1);
+        Player blackPlayer = new Player(false, chessGame.getBoard(), player2);
+        this.chessGame.setWhitePlayer(whitePlayer);
+        this.chessGame.setBlackPlayer(blackPlayer);
     }
 
 
