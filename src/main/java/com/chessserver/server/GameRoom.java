@@ -31,9 +31,9 @@ public class GameRoom {
         return name;
     }
 
-    /** {id, nom, créateur} si la partie attend un adversaire, sinon null. */
-    synchronized String[] lobbyEntry() {
-        return isWaiting() ? new String[]{id, name, white.getPseudo()} : null;
+    /** Entrée « id,nom,créateur » si la partie attend un adversaire, sinon null. */
+    synchronized String lobbyEntry() {
+        return isWaiting() ? String.join(",", id, name, white.getPseudo()) : null;
     }
 
     private boolean isWaiting() {
@@ -45,14 +45,18 @@ public class GameRoom {
             return false;
         }
         black = player;
-        game = new ChessGame(white.getPseudo(), black.getPseudo());
+        game = new ChessGame();
         return true;
     }
 
     synchronized void announceStart() {
-        white.send(Protocol.message(Protocol.GAME_START, id, name, white.getPseudo(), black.getPseudo(), "w"));
-        black.send(Protocol.message(Protocol.GAME_START, id, name, white.getPseudo(), black.getPseudo(), "b"));
+        white.send(startMessage("w"));
+        black.send(startMessage("b"));
         broadcastState();
+    }
+
+    private String startMessage(String color) {
+        return Protocol.message(Protocol.GAME_START, id, name, white.getPseudo(), black.getPseudo(), color);
     }
 
     synchronized void move(ClientSession player, String uci) throws ProtocolException {
@@ -94,11 +98,8 @@ public class GameRoom {
             return;
         }
         game.abandon(wasWhite);
-        ClientSession other = wasWhite ? black : white;
-        if (other != null) {
-            other.send(Protocol.state(game));
-            other.send(Protocol.message(Protocol.OPPONENT_LEFT, player.getPseudo()));
-        }
+        broadcastState();
+        broadcast(Protocol.message(Protocol.OPPONENT_LEFT, player.getPseudo()));
     }
 
     synchronized boolean isEmpty() {
@@ -113,8 +114,12 @@ public class GameRoom {
     }
 
     private void broadcastState() {
-        String state = Protocol.state(game);
-        if (white != null) white.send(state);
-        if (black != null) black.send(state);
+        broadcast(Protocol.state(game));
+    }
+
+    /** Envoie aux joueurs encore assis. */
+    private void broadcast(String line) {
+        if (white != null) white.send(line);
+        if (black != null) black.send(line);
     }
 }

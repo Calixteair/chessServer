@@ -76,8 +76,7 @@ public class ClientSession {
                 break;
             case Protocol.LEAVE_GAME:
                 requireRoom();
-                leaveRoom();
-                send(lobby.gamesMessage());
+                leaveRoom(); // le lobby repousse la liste des parties
                 break;
             default:
                 throw new ProtocolException(Protocol.ERR_UNKNOWN_COMMAND, "Commande inconnue : " + command);

@@ -64,7 +64,7 @@ public class Lobby {
         return id;
     }
 
-    public GameRoom joinGame(ClientSession player, String gameId) throws ProtocolException {
+    public void joinGame(ClientSession player, String gameId) throws ProtocolException {
         GameRoom room;
         synchronized (this) {
             room = rooms.get(gameId);
@@ -79,7 +79,6 @@ public class Lobby {
         Logger.info(player.getPseudo() + " rejoint « " + room.getName() + " »");
         room.announceStart();
         broadcastGames();
-        return room;
     }
 
     public void leaveGame(ClientSession player, GameRoom room) {
@@ -94,9 +93,9 @@ public class Lobby {
 
     /** Liste des parties en attente d'un adversaire. */
     public synchronized String gamesMessage() {
-        List<String[]> waiting = new ArrayList<>();
+        List<String> waiting = new ArrayList<>();
         for (GameRoom room : rooms.values()) {
-            String[] entry = room.lobbyEntry();
+            String entry = room.lobbyEntry();
             if (entry != null) {
                 waiting.add(entry);
             }

@@ -96,7 +96,7 @@ public final class Protocol {
     }
 
     /** Entrée de la liste des parties : id,nom,créateur (les noms ne contiennent ni ',' ni '|'). */
-    public static String games(List<String[]> entries) {
-        return message(GAMES, entries.stream().map(e -> String.join(",", e)).collect(Collectors.joining("|")));
+    public static String games(List<String> entries) {
+        return message(GAMES, String.join("|", entries));
     }
 }

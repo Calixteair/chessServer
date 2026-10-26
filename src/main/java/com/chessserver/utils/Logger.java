@@ -74,10 +74,17 @@ public class Logger {
      * @param message Le message à écrire.
      */
     private static void writeToFile(String message) {
-        try (PrintWriter out = new PrintWriter(new FileWriter(LOG_FILE, true))) {
-            out.println(message);
-        } catch (IOException e) {
-            System.err.println("Impossible d'écrire dans le fichier de log : " + e.getMessage());
+        if (file == null) {
+            try {
+                file = new PrintWriter(new FileWriter(LOG_FILE, true), true);
+            } catch (IOException e) {
+                System.err.println("Impossible d'ouvrir le fichier de log : " + e.getMessage());
+                return;
+            }
         }
+        file.println(message);
     }
+
+    /** Ouvert au premier message puis gardé ouvert (accès sous le verrou de {@link #log}). */
+    private static PrintWriter file;
 }
