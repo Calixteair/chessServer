@@ -55,7 +55,7 @@ public class Logger {
      * @param level   Le niveau du log (INFO, ERROR, WARN, DEBUG).
      * @param message Le message à loguer.
      */
-    private static void log(String level, String message) {
+    private static synchronized void log(String level, String message) {
         String timeStamp = dateFormat.format(new Date());
         String formattedMessage = String.format("[%s] [%s] %s", timeStamp, level, message);
 

@@ -1,7 +1,9 @@
 package com.chessserver.server;
 
-import com.chessserver.utils.Logger;
 import com.chessserver.config.ServerConfig;
+import com.chessserver.network.TcpConnection;
+import com.chessserver.network.WebSocketGateway;
+import com.chessserver.utils.Logger;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -9,66 +11,66 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Serveur d'échecs : un port TCP (client JavaFX) et un port WebSocket (client web),
+ * branchés sur le même lobby. Un joueur FX peut donc affronter un joueur web.
+ */
 public class ChessServer {
 
-    private final int port;
-    private final PlayerManager playerManager;
-    private final GameRegistry gameRegistry;
-    private final ExecutorService threadPool;
+    private final Lobby lobby = new Lobby();
+    private final ExecutorService tcpThreads = Executors.newCachedThreadPool();
+    private final int tcpPort;
+    private final WebSocketGateway webSocket;
     private ServerSocket serverSocket;
 
-    public ChessServer(int port) {
-        this.port = port;
-        this.playerManager = new PlayerManager();
-        this.gameRegistry = new GameRegistry();
-        this.threadPool = Executors.newCachedThreadPool();  // Utilisation d'un pool de threads pour gérer les clients
+    public ChessServer(int tcpPort, int wsPort) {
+        this.tcpPort = tcpPort;
+        this.webSocket = new WebSocketGateway(wsPort, lobby);
     }
 
-    /**
-     * Démarre le serveur et accepte les connexions clients.
-     */
     public void start() {
-        try {
-            serverSocket = new ServerSocket(port);
-            Logger.info("Serveur démarré sur le port " + port);
-
-            // Boucle infinie pour accepter les connexions des clients
-            while (!serverSocket.isClosed()) {
-                Socket clientSocket = serverSocket.accept();
-                Logger.info("Nouvelle connexion de " + clientSocket.getInetAddress());
-
-                // Crée un thread pour gérer le client via ClientHandler
-                ClientHandler clientHandler = new ClientHandler(clientSocket, playerManager, gameRegistry);
-                threadPool.execute(clientHandler);  // Utilisation du thread pool pour gérer le client
+        webSocket.start();
+        try (ServerSocket socket = new ServerSocket(tcpPort)) {
+            serverSocket = socket;
+            Logger.info("TCP à l'écoute sur le port " + tcpPort);
+            while (!socket.isClosed()) {
+                acceptOne(socket);
             }
         } catch (IOException e) {
-            Logger.error("Erreur lors du démarrage du serveur : " + e.getMessage());
+            Logger.error("Arrêt du serveur TCP : " + e.getMessage());
         } finally {
             shutdown();
         }
     }
 
-    /**
-     * Arrête le serveur proprement en fermant le ServerSocket et le pool de threads.
-     */
+    private void acceptOne(ServerSocket socket) throws IOException {
+        Socket client = socket.accept();
+        try {
+            tcpThreads.execute(new TcpConnection(client, lobby));
+        } catch (IOException e) {
+            Logger.warn("Connexion TCP refusée : " + e.getMessage());
+            client.close();
+        }
+    }
+
     public void shutdown() {
         try {
             if (serverSocket != null && !serverSocket.isClosed()) {
                 serverSocket.close();
-                Logger.info("Serveur arrêté.");
             }
-            threadPool.shutdown();
-        } catch (IOException e) {
-            Logger.error("Erreur lors de l'arrêt du serveur : " + e.getMessage());
+            webSocket.stop(1000);
+        } catch (IOException | InterruptedException e) {
+            Logger.error("Erreur à l'arrêt : " + e.getMessage());
+            if (e instanceof InterruptedException) {
+                Thread.currentThread().interrupt();
+            }
         }
+        tcpThreads.shutdownNow();
     }
 
     public static void main(String[] args) {
-        // Récupère la configuration du serveur
-        int port = ServerConfig.getPort();
-        ChessServer server = new ChessServer(port);
-
-        // Démarre le serveur
+        ChessServer server = new ChessServer(ServerConfig.getTcpPort(), ServerConfig.getWebSocketPort());
+        Runtime.getRuntime().addShutdownHook(new Thread(server::shutdown));
         server.start();
     }
 }
