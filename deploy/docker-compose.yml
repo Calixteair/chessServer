@@ -1,0 +1,69 @@
+# Jeu d'échecs multijoueur : serveur Java + client web React.
+#
+# Aucun port publié, tout passe par le réseau nginx-reverse-proxy :
+#   https://chess.calixteair.fr      -> NPM -> chess-web:8080 (statique, /ws relayé vers chess-server:8091)
+#   chessfx.calixteair.fr:443 (TLS)  -> Xray (fallback) -> NPM :8443 (aiguillage SNI)
+#                                    -> NPM :5444 (TLS Let's Encrypt) -> chess-server:8090 (client JavaFX)
+# Config NPM correspondante : infra/nginx-proxy-manager/data/nginx/custom/stream.conf
+#
+# Aucun secret, aucune donnée persistante (parties en mémoire).
+# Sources dans src/ (copiées par deploy.sh depuis le PC). Rebuild : docker compose up -d --build
+
+services:
+  chess-server:
+    build:
+      context: ./src
+      dockerfile: chessServer/Dockerfile
+    image: chess-server:1.0
+    container_name: chess-server
+    restart: unless-stopped
+    networks:
+      - nginx-reverse-proxy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+    deploy:
+      resources:
+        limits:
+          memory: 384M
+          cpus: "1.0"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  chess-web:
+    build: ./src/chessWeb
+    image: chess-web:1.0
+    container_name: chess-web
+    restart: unless-stopped
+    depends_on:
+      - chess-server
+    networks:
+      - nginx-reverse-proxy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+          cpus: "0.50"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  nginx-reverse-proxy:
+    external: true

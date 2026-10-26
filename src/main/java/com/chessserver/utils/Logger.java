@@ -9,8 +9,9 @@ import java.util.Date;
 
 public class Logger {
 
-    private static final boolean LOG_TO_FILE = true; // Active ou désactive les logs dans un fichier
-    private static final String LOG_FILE = "server.log"; // Chemin du fichier de logs
+    /** Fichier de logs ({@code CHESS_LOG_FILE}, « server.log » par défaut) ; « - » : console seule. */
+    private static final String LOG_FILE = System.getenv().getOrDefault("CHESS_LOG_FILE", "server.log");
+    private static final boolean LOG_TO_FILE = !"-".equals(LOG_FILE);
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
