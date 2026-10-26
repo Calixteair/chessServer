@@ -1,5 +1,6 @@
 package com.chessserver.server;
 
+import com.chessgame.utils.Move;
 import com.chessserver.exceptions.GameFullException;
 import com.chessserver.utils.Logger;
 
@@ -13,19 +14,20 @@ public class GameSession implements Serializable {
     private String gameName;
     private String player1;
     private String player2;
+    private transient PlayerManager playerManager;
     private boolean isFull = false;
     private GameManager gameManager;
     private int currentPlayer = 0;
-    private int whitePlayer = 0;
-    private int blackPlayer = 1;
     Semaphore semPartyStart; // semaphore to wait the beginning of the party, using nbPartyStart as a counter
     int nbPartyStart; // number of threads waiting for the party to start
     Semaphore semCurrentPlayed; // semaphore to wait that current player played sthg. CAUTION: the current thread MUST also use this semaphore
     int nbCurrentPlayed; // number of thread that are waiting for current player played
     Semaphore semEndParty; // semaphore to wait the end of the party
     int nbPartyEnd;
+    private final Semaphore semCurrentPlayer = new Semaphore(1);
 
-    public GameSession(String creatorPseudo, String gameName) {
+    public GameSession(String creatorPseudo, String gameName, PlayerManager playerManager) {
+        this.playerManager = playerManager;
         this.gameName = gameName;
         this.id = UUID.randomUUID().toString();
         this.player1 = creatorPseudo;
@@ -53,15 +55,6 @@ public class GameSession implements Serializable {
         gameManager.initGame(player1, player2, gameName);
      }
 
-
-     public void waitCurrentPlayed() {
-        try {
-            semCurrentPlayed.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-     }
-
      public void waitPartyEnd() {
         try {
             semEndParty.acquire();
@@ -84,16 +77,18 @@ public class GameSession implements Serializable {
     }
 
     public boolean isFull() {
-        return isFull;
+        return this.isFull;
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public String getGameName() {
-        return gameName;
+        return this.gameName;
     }
+
+    public GameManager getGameManager() {return this.gameManager;}
 
      public synchronized void setNextPlayer() {
         currentPlayer = (currentPlayer+1)%2;
@@ -106,6 +101,44 @@ public class GameSession implements Serializable {
         } else {
             return player1;
         }
+    }
+
+    public int getNombreJoueur() {
+        int res = 0;
+        if (player1 != null) {
+            res++;
+        }
+        if (player2 != null) {
+            res++;
+        }
+        return res;
+    }
+
+
+    @Override
+    public String toString(){
+        return this.gameName + " " + this.getNombreJoueur() + "/2 joueurs";
+    }
+
+    public void waitTurn() {
+        try {
+            semCurrentPlayer.acquire();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            Logger.error("Erreur lors de l'attente du tour du joueur : " + e.getMessage());
+        }
+    }
+
+    public void endTurn() {
+        semCurrentPlayer.release(); // Libère le tour pour le joueur suivant
+    }
+
+    public void sendMoveToplayer(Move move) {
+        ClientHandler handler = currentPlayer == 0 ? playerManager.getPlayerHandler(player1) : playerManager.getPlayerHandler(player2);
+        System.out.println(currentPlayer);
+        System.out.println(handler.getPlayerPseudo());
+        handler.sendMoveToPlayer(move);
+
     }
 }
 

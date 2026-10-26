@@ -1,21 +1,18 @@
 package com.chessserver.server;
 
+import com.chessgame.utils.Move;
 import com.chessserver.network.ClientMessage;
 import com.chessserver.utils.Logger;
 import com.chessserver.exceptions.InvalidPseudoException;
-import com.chessserver.exceptions.GameFullException;
-import com.chessserver.server.PlayerManager;
-import com.chessserver.server.GameRegistry;
 import com.chessserver.network.Protocol;
-import com.chessgame.model.ChessGame;
 
 import java.util.List;
 import java.io.*;
 import java.net.Socket;
 
-public class ClientHandler implements Runnable {
+public class ClientHandler implements Runnable, Serializable {
 
-    private final Socket clientSocket;
+    private final transient Socket clientSocket;
     private final PlayerManager playerManager;
     private final GameRegistry gameRegistry;
     private String playerPseudo;
@@ -57,6 +54,7 @@ public class ClientHandler implements Runnable {
         try {
             Logger.info("Traitement du message : " + message);
             ClientMessage clientMessage = new ClientMessage(message);
+            System.out.println(clientMessage.getType());
 
             switch (clientMessage.getType()) {
                 case Protocol.CONNECT:
@@ -80,6 +78,8 @@ public class ClientHandler implements Runnable {
                     break;
                 case Protocol.MOVE_PIECE:
                     //TODO: Implémenter la logique pour jouer un coup
+                    System.out.println("case move piece");
+                    System.out.println(clientMessage.getPayload());
                     movePiece(clientMessage.getPayload());
                     break;
                 default:
@@ -113,7 +113,7 @@ public class ClientHandler implements Runnable {
      * Crée une nouvelle partie et notifie le client.
      */
     private synchronized void createGame(String gameName) {
-        this.gameSession = gameRegistry.createGame(playerPseudo, gameName);
+        this.gameSession = gameRegistry.createGame(playerPseudo, gameName, playerManager);
         output.println(Protocol.OK);
         output.println(gameSession.getId());
         output.println("Nouvelle partie créée par " + playerPseudo);
@@ -126,12 +126,15 @@ public class ClientHandler implements Runnable {
      */
     private synchronized void listGames() throws IOException, ClassNotFoundException {
         System.out.println("listGames");
-        ChessGame game = new ChessGame();
-
-
-        System.out.println(game);
-
         List<GameSession> games = gameRegistry.listAvailableGames();
+        System.out.println(games);
+        System.out.println(games.size());
+        if (!games.isEmpty()) {
+            System.out.println(games.get(0));
+            System.out.println(games.get(0).getId());
+            System.out.println(games.get(0).getGameName());
+        }
+
 
         // Réutilisez le ObjectOutputStream, ou si c'est la première fois que vous l'utilisez, créez-le
         ObjectOutputStream out;
@@ -187,27 +190,51 @@ public class ClientHandler implements Runnable {
 
     /**
      * Joue un coup sur le plateau de jeu.
-     * @param move Le coup à jouer.
+     * @param moveString Le coup à jouer.
      *
      */
-    public void movePiece(String move) {
+    public void movePiece(String moveString) {
+        System.out.println("movePiece");
         //move  = "sourceX;sourceY;destX;destY"
-        String[] parts = move.split(";");
+        String[] parts = moveString.split(";");
+        System.out.println("parts");
+        for (String part : parts) {
+            System.out.println(part);
+        }
         if (parts.length < 4) {
+
             output.println(Protocol.ERROR_INVALID_MOVE);
             return;
         }
-        int[] coordinates = new int[4];
-        for (int i = 0; i < 4; i++) {
-            try {
-                coordinates[i] = Integer.parseInt(parts[i]);
-            } catch (NumberFormatException e) {
-                output.println(Protocol.ERROR_INVALID_MOVE);
-                return;
-            }
-        }
+        //print parts
+
+        String pawnDash = (parts.length == 5) ? parts[4] : "false";
+        Move move = new Move(Integer.parseInt(parts[0]),Integer.parseInt(parts[1]),Integer.parseInt(parts[2]),Integer.parseInt(parts[3]), Boolean.parseBoolean(pawnDash));
+        this.gameSession.getGameManager().movePiece(move);
+        output.println("OK");
+        this.gameSession.setNextPlayer();
+        this.gameSession.sendMoveToplayer(move);
+        this.gameSession.endTurn();
+        this.gameSession.waitTurn();
+    }
+
+    public void sendMoveToPlayer(Move move) {
+        System.out.println("sendMoveToPlayer");
+        System.out.println(move.getPawnDash() + "serveur panwdash");
+        String moveString = move.getStartX() + ";" + move.getStartY() + ";" + move.getEndX() + ";" + move.getEndY() + ";" + move.getPawnDash();
+        output.println(Protocol.MOVE_ADDV);
+        output.println(moveString);
+        System.out.println();
+    }
 
 
+    //set playerPseudo
+
+
+
+
+    public String getPlayerPseudo() {
+        return playerPseudo;
     }
 
 

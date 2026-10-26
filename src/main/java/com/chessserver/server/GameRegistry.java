@@ -14,8 +14,8 @@ public class GameRegistry {
     private Map<String, GameSession> activeGames = new HashMap<>();
     //private List<GameSession> activeGames = new ArrayList<>();
 
-    public synchronized GameSession createGame(String creatorPseudo, String gameName) {
-        GameSession game = new GameSession(creatorPseudo, gameName);
+    public synchronized GameSession createGame(String creatorPseudo, String gameName, PlayerManager playerManager) {
+        GameSession game = new GameSession(creatorPseudo, gameName, playerManager);
         activeGames.put(game.getId(), game);
         return game;
     }

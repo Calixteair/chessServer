@@ -46,6 +46,7 @@ public class Protocol {
     public static final String PROMOTION = "PROMOTION";      // Promotion d'un pion
     public static final String CASTLING = "CASTLING";        // Roque
     public static final String EN_PASSANT = "EN_PASSANT";    // Prise en passant
+    public static final String MOVE_ADDV = "MOVE_ADDV";
 
     /**
      * Exemple de format pour les messages de déplacement :

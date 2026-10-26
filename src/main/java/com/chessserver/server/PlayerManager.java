@@ -1,11 +1,13 @@
 package com.chessserver.server;
 
 import com.chessserver.exceptions.InvalidPseudoException;
+
+import java.io.Serializable;
 import java.util.regex.Pattern;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class PlayerManager {
+public class PlayerManager implements Serializable {
 
     private static final int MIN_PSEUDO_LENGTH = 1;
     private static final int MAX_PSEUDO_LENGTH = 20;
@@ -56,7 +58,7 @@ public class PlayerManager {
             throw new InvalidPseudoException("Le pseudo ne doit contenir que des caractères alphanumériques (pas de caractères spéciaux).");
         }
     }
-
+    
     public ClientHandler getPlayerHandler(String pseudo) {
         return connectedPlayers.get(pseudo);
     }

@@ -1,5 +1,6 @@
 package com.chessserver.server;
 
+import com.chessgame.controller.ChessGameController;
 import com.chessgame.model.Board;
 import com.chessgame.model.ChessGame;
 import com.chessgame.model.Player;
@@ -13,9 +14,11 @@ public class GameManager implements Serializable {
 
     private String GameName;
     private ChessGame chessGame;
+    private ChessGameController chessGameController;
 
     public void initGame(String player1, String player2, String gameName) {
-        this.chessGame = new ChessGame();
+        this.chessGameController = new ChessGameController();
+        this.chessGame = chessGameController.chessGame;
         this.GameName = gameName + " : " + player1 + " vs " + player2;
         Player whitePlayer = new Player(true, chessGame.getBoard(), player1);
         Player blackPlayer = new Player(false, chessGame.getBoard(), player2);
@@ -45,7 +48,7 @@ public class GameManager implements Serializable {
     }
 
     public void movePiece(Move move) {
-        chessGame.getCurrentPlayer().movePiece(move.getStartX(), move.getStartY(), move.getEndX(), move.getEndY());
+        chessGameController.movePiece(move);
     }
 
     public Board getBoard() {

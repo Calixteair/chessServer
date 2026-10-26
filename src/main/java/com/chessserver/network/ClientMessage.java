@@ -8,6 +8,9 @@ public class ClientMessage {
         String[] tokens = message.split(";");
         this.type = tokens[0];
         this.payload = tokens.length > 1 ? tokens[1] : null;
+        for (int i = 2; i < tokens.length; i++) {
+            this.payload += ";" + tokens[i];
+        }
     }
 
     public String getType() {
