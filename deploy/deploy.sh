@@ -12,16 +12,19 @@ STACK=/home/calixteair/docker/projects/chess
 STAGING=/tmp/chess-stack
 SUDO_PASS="$HOME/.config/vps-claude/sudo_pass"
 
-rsync -az --delete \
-  --exclude target/ --exclude node_modules/ --exclude dist/ --exclude .git/ --exclude .idea/ \
-  --exclude server.log --exclude '*.local' \
-  "$ROOT/chessGame" "$ROOT/chessServer" "$ROOT/chessWeb" "vps-claude:$STAGING/src/"
+# Le VPS n'a pas rsync : archive tar transmise par SSH vers un dossier de transit.
+ssh vps-claude "rm -rf $STAGING && mkdir -p $STAGING/src"
+tar -C "$ROOT" -czf - \
+  --exclude=target --exclude=node_modules --exclude=dist --exclude=.git --exclude=.idea \
+  --exclude=server.log --exclude='*.local' \
+  chessGame chessServer chessWeb | ssh vps-claude "tar -xzf - -C $STAGING/src"
 scp -q "$HERE/docker-compose.yml" "vps-claude:$STAGING/docker-compose.yml"
 
 # Mise en place sous calixteair, compose non lisible par les autres (règle vps-secrets-compose-lisibles).
 ssh vps-claude "sudo -S -p '' sh -c '
   mkdir -p $STACK &&
-  rsync -a --delete $STAGING/ $STACK/ &&
+  rm -rf $STACK/src &&
+  cp -a $STAGING/. $STACK/ &&
   chown -R calixteair:calixteair $STACK &&
   chmod 750 $STACK && chmod 640 $STACK/docker-compose.yml &&
   ln -sfn $STACK /home/calixteair/dockge-stacks/chess &&
